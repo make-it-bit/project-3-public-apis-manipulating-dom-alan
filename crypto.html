@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crypto prices</title>
+    <link href="./styles/shared.css" rel="stylesheet" type="text/css" />
+    <link href="./styles/crypto-style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="topnav">
+      <a href="./index.html">Home</a>
+      <a class="active" href="./crypto.html">Crypto</a>
+    </div>
+    <div class="content-container">
+      <div class="title-container">
+        <h1>Get latest crypto prices</h1>
+      </div>
+      <div class="form-container">
+        <label for="symbol">Choose crypto</label>
+        <select id="symbol" name="symbol">
+          <option value="BTC">BTC</option>
+          <option value="ETH">ETH</option>
+          <option value="DOGE">DOGE</option>
+          <option value="SHIB">SHIB</option>
+        </select>
+        <button onclick="getCryptoPrices()">Show me prices!</button>
+      </div>
+    </div>
+    <script src="./scripts/crypto.js"></script>
+  </body>
+</html>
