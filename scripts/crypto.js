@@ -8,7 +8,7 @@ async function getCryptoPrices() {
           "EUR"
       );
       const data = await response.json();
-      console.log(data);
+      return data;
     } catch (error) {
       showErrorMessage(`Could not get data for ${cryptoSymbol}`);
     }
@@ -49,15 +49,30 @@ function validateUserInput(userInput) {
   return lettersOnlyRegex.test(userInput);
 }
 
-function buildUserSelectionJson() {
+async function getCryptoDataJson() {
   // Build a json file with user's specified parameters about crypto data.
+  jsonData = await getCryptoPrices();
+
+  let output = "";
   const checkboxContainers =
     document.getElementsByClassName("checkbox-container");
   for (let i = 0; i < checkboxContainers.length; i++) {
-    let checkboxValue =
-      checkboxContainers[i].getElementsByTagName("span")[0].innerHTML;
     let isCheckboxChecked =
       checkboxContainers[i].getElementsByClassName("check-input")[0].checked;
-    console.log(checkboxValue + ": " + isCheckboxChecked);
+
+    if (isCheckboxChecked) {
+      let checkboxValue =
+        checkboxContainers[i].getElementsByTagName("span")[0].innerHTML;
+      let checkBoxId =
+        checkboxContainers[i].getElementsByClassName("check-input")[0].id;
+      output += `<li>${checkboxValue}: ${Number(jsonData[checkBoxId]).toFixed(
+        4
+      )}</li>`;
+    }
   }
+  document.getElementById("crypto-data-container").style.display = "block";
+  document.getElementById(
+    "crypto-data-container-title"
+  ).innerHTML = `Data for ${jsonData["symbol"]}`;
+  document.getElementById("crypto-data-list").innerHTML = output;
 }

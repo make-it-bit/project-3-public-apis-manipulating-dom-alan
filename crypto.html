@@ -39,10 +39,10 @@
           <input
             type="checkbox"
             class="check-input"
-            id="check1"
+            id="askPrice"
             autocomplete="off"
           />
-          <label for="check1" class="checkbox">
+          <label for="askPrice" class="checkbox">
             <svg viewBox="0 0 22 16" fill="none">
               <path d="M1 6.85L8.09677 14L21 1" />
             </svg>
@@ -53,10 +53,10 @@
           <input
             type="checkbox"
             class="check-input"
-            id="check2"
+            id="lowPrice"
             autocomplete="off"
           />
-          <label for="check2" class="checkbox">
+          <label for="lowPrice" class="checkbox">
             <svg viewBox="0 0 22 16" fill="none">
               <path d="M1 6.85L8.09677 14L21 1" />
             </svg>
@@ -67,10 +67,10 @@
           <input
             type="checkbox"
             class="check-input"
-            id="check3"
+            id="highPrice"
             autocomplete="off"
           />
-          <label for="check3" class="checkbox">
+          <label for="highPrice" class="checkbox">
             <svg viewBox="0 0 22 16" fill="none">
               <path d="M1 6.85L8.09677 14L21 1" />
             </svg>
@@ -81,10 +81,10 @@
           <input
             type="checkbox"
             class="check-input"
-            id="check4"
+            id="lastPrice"
             autocomplete="off"
           />
-          <label for="check4" class="checkbox">
+          <label for="lastPrice" class="checkbox">
             <svg viewBox="0 0 22 16" fill="none">
               <path d="M1 6.85L8.09677 14L21 1" />
             </svg>
@@ -95,35 +95,35 @@
           <input
             type="checkbox"
             class="check-input"
-            id="check5"
+            id="priceChange"
             autocomplete="off"
           />
-          <label for="check5" class="checkbox">
+          <label for="priceChange" class="checkbox">
             <svg viewBox="0 0 22 16" fill="none">
               <path d="M1 6.85L8.09677 14L21 1" />
             </svg>
           </label>
-          <span>Price change ($)</span>
+          <span>Price change (€)</span>
         </div>
         <div class="checkbox-container">
           <input
             type="checkbox"
             class="check-input"
-            id="check6"
+            id="priceChangePercent"
             autocomplete="off"
           />
-          <label for="check6" class="checkbox">
+          <label for="priceChangePercent" class="checkbox">
             <svg viewBox="0 0 22 16" fill="none">
               <path d="M1 6.85L8.09677 14L21 1" />
             </svg>
           </label>
           <span>Price change (%)</span>
         </div>
-        <button onclick="getCryptoPrices()">Show me prices!</button>
-        <button onclick="buildUserSelectionJson()">test</button>
+        <button onclick="getCryptoDataJson()">Show me prices!</button>
       </div>
       <div class="crypto-data-container" id="crypto-data-container">
-        <h1>all data here</h1>
+        <h2 id="crypto-data-container-title">Data for</h2>
+        <h2 id="crypto-data-list"></h2>
       </div>
     </div>
     <script src="./scripts/crypto.js"></script>

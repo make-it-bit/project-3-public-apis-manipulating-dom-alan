@@ -15,4 +15,5 @@ Resources
 
 TODO:
 
-- finish buildUserSelectionJson function
+- fix form width (placeholder not visible at width 900px)
+- fix label "data for {symbol}" must disappear when entered wrong symbol.

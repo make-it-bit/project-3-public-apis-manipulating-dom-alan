@@ -51,9 +51,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.content-container h1,
-h2 {
+.title-container {
   text-align: center;
+  width: 100%;
+  font-family: "Sublem", Helvetica, sans-serif;
 }
 
 .form-container {

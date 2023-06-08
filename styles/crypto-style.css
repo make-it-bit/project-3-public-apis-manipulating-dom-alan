@@ -16,16 +16,10 @@ textarea {
   resize: vertical;
 }
 
-.content-container h1 {
-  font-family: "Sublem", Helvetica, sans-serif;
-}
-
-.title-container h1 {
-  font-family: "Sublem", Helvetica, sans-serif;
-}
-
 .crypto-data-container {
   display: none;
+  margin-top: 50px;
+  text-align: center;
 }
 
 .user-text-input {
