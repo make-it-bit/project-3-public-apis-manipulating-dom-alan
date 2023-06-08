@@ -15,5 +15,4 @@ Resources
 
 TODO:
 
-- add form container media query
-- make sure user crypto input is read as uppercase
+- finish buildUserSelectionJson function

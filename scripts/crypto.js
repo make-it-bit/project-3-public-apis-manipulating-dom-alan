@@ -48,3 +48,16 @@ function validateUserInput(userInput) {
   const lettersOnlyRegex = /^[a-zA-Z]+$/;
   return lettersOnlyRegex.test(userInput);
 }
+
+function buildUserSelectionJson() {
+  // Build a json file with user's specified parameters about crypto data.
+  const checkboxContainers =
+    document.getElementsByClassName("checkbox-container");
+  for (let i = 0; i < checkboxContainers.length; i++) {
+    let checkboxValue =
+      checkboxContainers[i].getElementsByTagName("span")[0].innerHTML;
+    let isCheckboxChecked =
+      checkboxContainers[i].getElementsByClassName("check-input")[0].checked;
+    console.log(checkboxValue + ": " + isCheckboxChecked);
+  }
+}
