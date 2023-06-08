@@ -12,3 +12,8 @@ Resources
 - APIs list: https://mixedanalytics.com/blog/list-actually-free-open-no-auth-needed-apis/
   - Binance crypto 24h changes: https://data.binance.com/api/v3/ticker/24hr?symbol=BTCEUR
 - https://www.freecodecamp.org/news/javascript-dom-manipulation/
+
+TODO:
+
+- add form container media query
+- make sure user crypto input is read as uppercase

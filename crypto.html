@@ -19,12 +19,22 @@
       </div>
       <div class="form-container">
         <label for="symbol">Choose crypto</label>
-        <select id="symbol" name="symbol">
+        <select id="symbol" name="symbol" onchange="showUserInputField()">
           <option value="BTC">BTC</option>
           <option value="ETH">ETH</option>
           <option value="DOGE">DOGE</option>
           <option value="SHIB">SHIB</option>
+          <option value="Other">Other</option>
         </select>
+        <input
+          type="text"
+          id="user-text-input"
+          class="user-text-input"
+          placeholder="Type your choice, e.g: 'XRP'"
+        />
+        <div class="error-container" id="error-container">
+          <p id="error-message">Not a valid crypto symbol</p>
+        </div>
         <button onclick="getCryptoPrices()">Show me prices!</button>
       </div>
     </div>

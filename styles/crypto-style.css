@@ -18,3 +18,12 @@ textarea {
 .title-container h1 {
   font-family: "Sublem", Helvetica, sans-serif;
 }
+
+.user-text-input {
+  display: none;
+}
+
+.error-container {
+  background-color: red;
+  display: none;
+}
