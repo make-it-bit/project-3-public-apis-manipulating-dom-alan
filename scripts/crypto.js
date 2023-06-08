@@ -1,20 +1,18 @@
 async function getCryptoPrices() {
   const cryptoSymbol = handleUserInput();
   if (cryptoSymbol) {
-    // fetch here
+    try {
+      const response = await fetch(
+        "https://data.binance.com/api/v3/ticker/24hr?symbol=" +
+          cryptoSymbol.toUpperCase() +
+          "EUR"
+      );
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   }
-
-  // fetch(
-  //   "https://data.binance.com/api/v3/ticker/24hr?symbol=" +
-  //     cryptoSymbol.toUpperCase() +
-  //     "EUR"
-  // ).then((response) => {
-  //   if (!response.ok) console.log("there was an error");
-  //   console.log(response.json());
-  // });
-
-  // const data = await response.json();
-  // console.log(data);
 }
 
 function showUserInputField() {
