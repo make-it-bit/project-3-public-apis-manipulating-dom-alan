@@ -24,6 +24,10 @@ textarea {
   font-family: "Sublem", Helvetica, sans-serif;
 }
 
+.crypto-data-container {
+  display: none;
+}
+
 .user-text-input {
   display: none;
 }

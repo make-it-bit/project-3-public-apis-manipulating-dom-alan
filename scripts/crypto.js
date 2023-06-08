@@ -10,7 +10,7 @@ async function getCryptoPrices() {
       const data = await response.json();
       console.log(data);
     } catch (error) {
-      console.log(error);
+      showErrorMessage(`Could not get data for ${cryptoSymbol}`);
     }
   }
 }
@@ -27,18 +27,21 @@ function showUserInputField() {
 function handleUserInput() {
   if (document.getElementById("symbol").value === "Other") {
     userInput = document.getElementById("user-text-input").value;
-    const errorContainer = document.getElementById("error-container");
     if (validateUserInput(userInput)) {
-      errorContainer.style.display = "none";
+      document.getElementById("error-container").style.display = "none";
       return userInput;
     } else {
-      document.getElementById("error-message").innerHTML =
-        "Not a valid crypto symbol";
-      errorContainer.style.display = "block";
+      showErrorMessage("Not a valid crypto symbol");
     }
   } else {
     return document.getElementById("symbol").value;
   }
+}
+
+function showErrorMessage(message) {
+  const errorContainer = document.getElementById("error-container");
+  errorContainer.style.display = "block";
+  errorContainer.innerHTML = message;
 }
 
 function validateUserInput(userInput) {
