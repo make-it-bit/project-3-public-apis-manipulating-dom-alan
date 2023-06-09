@@ -49,6 +49,7 @@ body {
   width: 75%;
   margin: auto;
   font-family: Arial, Helvetica, sans-serif;
+  background-color: red;
 }
 
 .title-container {
@@ -66,15 +67,9 @@ body {
 }
 
 .loader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #333333;
   transition: opacity 0.75s, visibility 0.75s;
 }
 

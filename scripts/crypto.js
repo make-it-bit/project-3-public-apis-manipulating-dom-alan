@@ -8,6 +8,7 @@ async function getCryptoPrices() {
           "EUR"
       );
       const data = await response.json();
+      addLoader();
       return data;
     } catch (error) {
       showErrorMessage(`Could not get data for ${cryptoSymbol}`);
@@ -75,4 +76,15 @@ async function getCryptoDataJson() {
     "crypto-data-container-title"
   ).innerHTML = `Data for ${jsonData["symbol"]}`;
   document.getElementById("crypto-data-list").innerHTML = output;
+}
+
+function addLoader() {
+  document.getElementById("crypto-data-container").innerHTML +=
+    '<div class="loader"></div>';
+}
+
+function removeLoader() {
+  document
+    .getElementById("crypto-data-container")
+    .removeChild(document.querySelector(".loader"));
 }

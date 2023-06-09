@@ -9,14 +9,13 @@
     <link href="./styles/crypto-style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <div class="loader"></div>
     <div class="topnav">
       <a href="./index.html">Home</a>
       <a class="active" href="./crypto.html">Crypto</a>
     </div>
     <div class="content-container">
       <div class="title-container">
-        <h1>Get latest crypto prices</h1>
+        <h1>Get latest 24h crypto prices</h1>
       </div>
       <div class="form-container">
         <label for="symbol">Choose crypto</label>
@@ -124,6 +123,7 @@
           </div>
         </div>
         <button onclick="getCryptoDataJson()">Show me prices!</button>
+        <button onclick="removeLoader()">test</button>
       </div>
       <div class="crypto-data-container" id="crypto-data-container">
         <h2 id="crypto-data-container-title">Data for</h2>
