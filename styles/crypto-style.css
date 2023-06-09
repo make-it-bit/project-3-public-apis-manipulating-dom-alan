@@ -18,11 +18,13 @@ textarea {
 
 .crypto-data-container {
   display: none;
+  padding-left: 10px;
+  padding-right: 10px;
   margin: auto;
-  margin-top: 50px;
-  text-align: center;
-  width: 50%;
+  margin-top: 30px;
+  width: 90%;
   background-color: rgb(4, 255, 0);
+  text-align: center;
 }
 
 .user-text-input {
@@ -101,17 +103,5 @@ textarea {
 @keyframes ripple {
   to {
     transform: scale(1);
-  }
-}
-
-@media (max-width: 768px) {
-  .crypto-data-container {
-    width: 50%;
-  }
-}
-
-@media (max-width: 480px) {
-  .crypto-data-container {
-    width: 75%;
   }
 }
