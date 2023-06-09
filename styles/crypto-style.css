@@ -18,6 +18,7 @@ textarea {
 
 .crypto-data-container {
   display: none;
+  margin: auto;
   margin-top: 50px;
   text-align: center;
 }
@@ -98,5 +99,17 @@ textarea {
 @keyframes ripple {
   to {
     transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .crypto-data-container {
+    width: 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  .crypto-data-container {
+    width: 75%;
   }
 }
