@@ -1,6 +1,7 @@
 async function getCryptoPrices() {
   const cryptoSymbol = handleUserInput();
   if (cryptoSymbol) {
+    addLoader();
     try {
       const response = await fetch(
         "https://data.binance.com/api/v3/ticker/24hr?symbol=" +
@@ -8,7 +9,7 @@ async function getCryptoPrices() {
           "EUR"
       );
       const data = await response.json();
-      addLoader();
+      removeLoader();
       return data;
     } catch (error) {
       showErrorMessage(`Could not get data for ${cryptoSymbol}`);
@@ -39,15 +40,15 @@ function handleUserInput() {
   }
 }
 
+function validateUserInput(userInput) {
+  const lettersOnlyRegex = /^[a-zA-Z]+$/;
+  return lettersOnlyRegex.test(userInput);
+}
+
 function showErrorMessage(message) {
   const errorContainer = document.getElementById("error-container");
   errorContainer.style.display = "block";
   errorContainer.innerHTML = message;
-}
-
-function validateUserInput(userInput) {
-  const lettersOnlyRegex = /^[a-zA-Z]+$/;
-  return lettersOnlyRegex.test(userInput);
 }
 
 async function getCryptoDataJson() {
