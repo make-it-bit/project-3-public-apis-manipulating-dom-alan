@@ -49,11 +49,13 @@ function showErrorMessage(message) {
   const errorContainer = document.getElementById("error-container");
   errorContainer.style.display = "block";
   errorContainer.innerHTML = message;
+  hideCryptoDataContainer();
+  removeLoader();
 }
 
 async function getCryptoDataJson() {
   // Build a json file with user's specified parameters about crypto data.
-  jsonData = await getCryptoPrices();
+  let = jsonData = await getCryptoPrices();
 
   let output = "";
   const checkboxContainers =
@@ -71,15 +73,12 @@ async function getCryptoDataJson() {
         4
       )}</li>`;
     }
+    showCryptoDataContainer(output);
   }
-  document.getElementById("crypto-data-container").style.display = "block";
-  document.getElementById(
-    "crypto-data-container-title"
-  ).innerHTML = `Data for ${jsonData["symbol"]}`;
-  document.getElementById("crypto-data-list").innerHTML = output;
 }
 
 function addLoader() {
+  document.getElementById("crypto-data-list").innerHTML = "";
   document.getElementById("crypto-data-container").innerHTML +=
     '<div class="loader"></div>';
 }
@@ -88,4 +87,16 @@ function removeLoader() {
   document
     .getElementById("crypto-data-container")
     .removeChild(document.querySelector(".loader"));
+}
+
+function showCryptoDataContainer(cryptoData) {
+  document.getElementById("crypto-data-container").style.display = "block";
+  document.getElementById(
+    "crypto-data-container-title"
+  ).innerHTML = `Data for ${jsonData["symbol"]}`;
+  document.getElementById("crypto-data-list").innerHTML = cryptoData;
+}
+
+function hideCryptoDataContainer() {
+  document.getElementById("crypto-data-container").style.display = "none";
 }

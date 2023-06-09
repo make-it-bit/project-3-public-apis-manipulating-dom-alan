@@ -23,8 +23,14 @@ textarea {
   margin: auto;
   margin-top: 30px;
   width: 90%;
-  background-color: rgb(4, 255, 0);
+  text-align: left;
+}
+
+.crypto-data-container h1 {
+  font-size: 1.8rem;
   text-align: center;
+  width: 100%;
+  font-family: "Sublem", Helvetica, sans-serif;
 }
 
 .user-text-input {
@@ -32,7 +38,8 @@ textarea {
 }
 
 .error-container {
-  background-color: red;
+  color: red;
+  font-weight: bold;
   display: none;
 }
 
@@ -69,14 +76,13 @@ textarea {
 }
 
 .check-input:checked + .checkbox {
-  background: var(--form-control-active-color);
-  border: 2px solid var(--form-control-active-color);
+  border: 2px solid #ff8000;
 }
 
 .check-input:checked + .checkbox svg path {
   stroke-dasharray: 500;
   stroke-dashoffset: 500;
-  stroke: #ff0000;
+  stroke: #147a00;
   stroke-width: 3;
   animation: check 2.5s forwards;
 }

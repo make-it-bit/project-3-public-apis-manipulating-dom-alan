@@ -15,6 +15,4 @@ Resources
 
 TODO:
 
-- fix form width (placeholder not visible at width 900px)
-- fix label "data for {symbol}" must disappear when entered wrong symbol.
-- fix crypto-data-container text content align should be left, and title should be centered.
+- fix style
