@@ -55,14 +55,16 @@ const showCryptoDataContainer = (cryptoSymbol, cryptoData) => {
     'crypto-data-container-title'
   ).innerHTML = `Data for ${cryptoSymbol}`;
   document.getElementById('crypto-data-list').innerHTML = cryptoData;
-  buildQueryString({ symbol: cryptoSymbol.substring(0, 3) });
+  writeQueryString({ symbol: cryptoSymbol.substring(0, 3) });
 };
 
-const buildQueryString = (queryParamsJson) => {
+const writeQueryString = (queryParamsJson) => {
   const queryString = new URLSearchParams(queryParamsJson);
   history.replaceState('', '', window.location.pathname);
   window.location.href += `?${queryString.toString()}`;
 };
+
+const readQueryString = () => {};
 
 const hideCryptoDataContainer = () => {
   document.getElementById('crypto-data-container').style.display = 'none';
