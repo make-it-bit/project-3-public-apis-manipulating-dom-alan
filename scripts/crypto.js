@@ -1,3 +1,28 @@
+window.onload = () => {
+  const queryString = readQueryString();
+
+  for (arrayElem of queryString) {
+    let key = arrayElem[0];
+    let value = arrayElem[1];
+    if (key == 'symbol' && value) {
+      document.getElementById('symbol').value = value;
+    }
+  }
+};
+
+const writeQueryString = (searchParams) => {
+  const queryString = new URLSearchParams(searchParams);
+  history.replaceState('', '', window.location.pathname);
+  window.location.href += `?${queryString.toString()}`;
+};
+
+const readQueryString = () => {
+  const url = window.location.href;
+  const searchParams = new URL(url).searchParams;
+  const entries = new URLSearchParams(searchParams).entries();
+  return Array.from(entries);
+};
+
 const getCryptoPrices = async () => {
   const cryptoSymbol = handleUserInput();
   if (cryptoSymbol) {
@@ -22,7 +47,7 @@ const getCryptoDataJson = async () => {
   let output = '';
   const checkboxContainers =
     document.getElementsByClassName('checkbox-container');
-  for (let container of checkboxContainers) {
+  for (container of checkboxContainers) {
     let isCheckboxChecked =
       container.getElementsByClassName('check-input')[0].checked;
 
@@ -57,14 +82,6 @@ const showCryptoDataContainer = (cryptoSymbol, cryptoData) => {
   document.getElementById('crypto-data-list').innerHTML = cryptoData;
   writeQueryString({ symbol: cryptoSymbol.substring(0, 3) });
 };
-
-const writeQueryString = (queryParamsJson) => {
-  const queryString = new URLSearchParams(queryParamsJson);
-  history.replaceState('', '', window.location.pathname);
-  window.location.href += `?${queryString.toString()}`;
-};
-
-const readQueryString = () => {};
 
 const hideCryptoDataContainer = () => {
   document.getElementById('crypto-data-container').style.display = 'none';
