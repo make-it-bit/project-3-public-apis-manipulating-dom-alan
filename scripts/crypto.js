@@ -23,6 +23,7 @@ const showUserInputField = () => {
     usetTextInput.style.display = 'block';
   } else {
     usetTextInput.style.display = 'none';
+    usetTextInput.style.display = 'none';
   }
 };
 
@@ -49,13 +50,13 @@ const showErrorMessage = (message) => {
   const errorContainer = document.getElementById('error-container');
   errorContainer.style.display = 'block';
   errorContainer.innerHTML = message;
-  hideCryptoDataContainer();
+  document.getElementById('crypto-data-container').style.display = 'none';
   removeLoader();
 };
 
 const getCryptoDataJson = async () => {
   // Build a json file with user's specified parameters about crypto data.
-  let = jsonData = await getCryptoPrices();
+  let jsonData = await getCryptoPrices();
 
   let output = '';
   const checkboxContainers =
