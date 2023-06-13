@@ -17,6 +17,54 @@ const getCryptoPrices = async () => {
   }
 };
 
+const getCryptoDataJson = async () => {
+  // Build a json file with user's specified parameters about crypto data.
+  let jsonData = await getCryptoPrices();
+
+  let output = '';
+  const checkboxContainers =
+    document.getElementsByClassName('checkbox-container');
+  for (let i = 0; i < checkboxContainers.length; i++) {
+    let isCheckboxChecked =
+      checkboxContainers[i].getElementsByClassName('check-input')[0].checked;
+
+    if (isCheckboxChecked) {
+      let checkboxValue =
+        checkboxContainers[i].getElementsByTagName('span')[0].innerHTML;
+      let checkBoxId =
+        checkboxContainers[i].getElementsByClassName('check-input')[0].id;
+      output += `<li>${checkboxValue}: ${Number(jsonData[checkBoxId]).toFixed(
+        4
+      )}</li>`;
+    }
+    showCryptoDataContainer(jsonData['symbol'], output);
+  }
+};
+
+const addLoader = () => {
+  document.getElementById('crypto-data-list').innerHTML = '';
+  document.getElementById('crypto-data-container').innerHTML +=
+    '<div class="loader"></div>';
+};
+
+const removeLoader = () => {
+  document
+    .getElementById('crypto-data-container')
+    .removeChild(document.querySelector('.loader'));
+};
+
+const showCryptoDataContainer = (cryptoSymbol, cryptoData) => {
+  document.getElementById('crypto-data-container').style.display = 'block';
+  document.getElementById(
+    'crypto-data-container-title'
+  ).innerHTML = `Data for ${cryptoSymbol}`;
+  document.getElementById('crypto-data-list').innerHTML = cryptoData;
+};
+
+const hideCryptoDataContainer = () => {
+  document.getElementById('crypto-data-container').style.display = 'none';
+};
+
 const showUserInputField = () => {
   const usetTextInput = document.getElementById('user-text-input');
   if (document.getElementById('symbol').value === 'Other') {
@@ -52,56 +100,4 @@ const showErrorMessage = (message) => {
   errorContainer.innerHTML = message;
   document.getElementById('crypto-data-container').style.display = 'none';
   removeLoader();
-};
-
-const getCryptoDataJson = async () => {
-  // Build a json file with user's specified parameters about crypto data.
-  let jsonData = await getCryptoPrices();
-
-  let output = '';
-  const checkboxContainers =
-    document.getElementsByClassName('checkbox-container');
-  for (let i = 0; i < checkboxContainers.length; i++) {
-    let isCheckboxChecked =
-      checkboxContainers[i].getElementsByClassName('check-input')[0].checked;
-
-    if (isCheckboxChecked) {
-      let checkboxValue =
-        checkboxContainers[i].getElementsByTagName('span')[0].innerHTML;
-      let checkBoxId =
-        checkboxContainers[i].getElementsByClassName('check-input')[0].id;
-      output += `<li>${checkboxValue}: ${Number(jsonData[checkBoxId]).toFixed(
-        4
-      )}</li>`;
-    }
-    showCryptoDataContainer(output);
-  }
-};
-
-const addLoader = () => {
-  document.getElementById('crypto-data-list').innerHTML = '';
-  document.getElementById('crypto-data-container').innerHTML +=
-    '<div class="loader"></div>';
-};
-
-const removeLoader = () => {
-  document
-    .getElementById('crypto-data-container')
-    .removeChild(document.querySelector('.loader'));
-};
-
-const showCryptoDataContainer = (cryptoData) => {
-  document.getElementById('crypto-data-container').style.display = 'block';
-  document.getElementById(
-    'crypto-data-container-title'
-  ).innerHTML = `Data for ${jsonData['symbol']}`;
-  document.getElementById('crypto-data-list').innerHTML = cryptoData;
-};
-
-const hideCryptoDataContainer = () => {
-  document.getElementById('crypto-data-container').style.display = 'none';
-};
-
-const clearData = () => {
-  hideCryptoDataContainer();
 };
