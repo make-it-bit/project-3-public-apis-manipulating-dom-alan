@@ -33,8 +33,8 @@ const getCryptoDataJson = async () => {
         4
       )}</li>`;
     }
-    showCryptoDataContainer(jsonData['symbol'], output);
   }
+  showCryptoDataContainer(jsonData['symbol'], output);
 };
 
 const addLoader = () => {
@@ -55,6 +55,13 @@ const showCryptoDataContainer = (cryptoSymbol, cryptoData) => {
     'crypto-data-container-title'
   ).innerHTML = `Data for ${cryptoSymbol}`;
   document.getElementById('crypto-data-list').innerHTML = cryptoData;
+  buildQueryString({ symbol: cryptoSymbol.substring(0, 3) });
+};
+
+const buildQueryString = (queryParamsJson) => {
+  const queryString = new URLSearchParams(queryParamsJson);
+  history.replaceState('', '', window.location.pathname);
+  window.location.href += `?${queryString.toString()}`;
 };
 
 const hideCryptoDataContainer = () => {
@@ -66,7 +73,6 @@ const showUserInputField = () => {
   if (document.getElementById('symbol').value === 'Other') {
     usetTextInput.style.display = 'block';
   } else {
-    usetTextInput.style.display = 'none';
     usetTextInput.style.display = 'none';
   }
 };
