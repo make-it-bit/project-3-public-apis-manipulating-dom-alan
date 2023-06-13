@@ -12,8 +12,11 @@ window.onload = () => {
 
 const writeQueryString = (searchParams) => {
   const queryString = new URLSearchParams(searchParams);
-  history.replaceState('', '', window.location.pathname);
-  window.location.href += `?${queryString.toString()}`;
+  history.replaceState(
+    '',
+    '',
+    `${window.location.pathname}?${queryString.toString()}`
+  );
 };
 
 const readQueryString = () => {
