@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "Sublem";
-  src: url(/fonts/Sublem.ttf) format("truetype");
+  font-family: 'Sublem';
+  src: url(/fonts/Sublem.ttf) format('truetype');
   font-weight: normal;
 }
 
@@ -19,7 +19,7 @@ body {
   background-color: var(--primary-color);
 }
 
-button {
+.form-button {
   background-color: #2ab2af;
   color: white;
   padding: 10px 20px;
@@ -27,16 +27,15 @@ button {
   border-radius: 6px;
   cursor: pointer;
   margin: auto;
-  margin-top: 30px;
-  display: block;
+  margin-top: 15px;
 }
 
-button:hover {
+.form-button:hover {
   background-color: #337177;
 }
 
 .topnav {
-  font-family: "Sublem", Helvetica, sans-serif;
+  font-family: 'Sublem', Helvetica, sans-serif;
   overflow: hidden;
   margin-bottom: 20px;
   color: black;
@@ -73,7 +72,7 @@ button:hover {
   font-size: 2rem;
   text-align: center;
   width: 100%;
-  font-family: "Sublem", Helvetica, sans-serif;
+  font-family: 'Sublem', Helvetica, sans-serif;
 }
 
 .form-container {
@@ -97,7 +96,7 @@ button:hover {
 }
 
 .loader::after {
-  content: "";
+  content: '';
   width: 35px;
   height: 35px;
   border: 5px solid #dddddd;

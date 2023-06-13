@@ -119,7 +119,10 @@
             <span>Price change (%)</span>
           </div>
         </div>
-        <button onclick="getCryptoDataJson()">Show me prices!</button>
+        <button class="form-button" onclick="getCryptoDataJson()">
+          Show me prices!
+        </button>
+        <button class="form-button" onclick="clearData()">Clear</button>
         <div class="crypto-data-container" id="crypto-data-container">
           <h1 id="crypto-data-container-title">Data for</h1>
           <p id="crypto-data-list"></p>
@@ -131,10 +134,10 @@
 </html>
 
 <script>
-  window.addEventListener("load", () => {
-    const loader = document.querySelector(".loader");
-    loader.classList.add("loader--hidden");
-    loader.addEventListener("transitionend", () => {
+  window.addEventListener('load', () => {
+    const loader = document.querySelector('.loader');
+    loader.classList.add('loader--hidden');
+    loader.addEventListener('transitionend', () => {
       document.body.removeChild(loader);
     });
   });
