@@ -4,9 +4,7 @@ const getCryptoPrices = async () => {
     addLoader();
     try {
       const response = await fetch(
-        'https://data.binance.com/api/v3/ticker/24hr?symbol=' +
-          cryptoSymbol.toUpperCase() +
-          'EUR'
+        `https://data.binance.com/api/v3/ticker/24hr?symbol=${cryptoSymbol.toUpperCase()}EUR`
       );
       const data = await response.json();
       removeLoader();
@@ -24,15 +22,13 @@ const getCryptoDataJson = async () => {
   let output = '';
   const checkboxContainers =
     document.getElementsByClassName('checkbox-container');
-  for (let i = 0; i < checkboxContainers.length; i++) {
+  for (let container of checkboxContainers) {
     let isCheckboxChecked =
-      checkboxContainers[i].getElementsByClassName('check-input')[0].checked;
+      container.getElementsByClassName('check-input')[0].checked;
 
     if (isCheckboxChecked) {
-      let checkboxValue =
-        checkboxContainers[i].getElementsByTagName('span')[0].innerHTML;
-      let checkBoxId =
-        checkboxContainers[i].getElementsByClassName('check-input')[0].id;
+      let checkboxValue = container.getElementsByTagName('span')[0].innerHTML;
+      let checkBoxId = container.getElementsByClassName('check-input')[0].id;
       output += `<li>${checkboxValue}: ${Number(jsonData[checkBoxId]).toFixed(
         4
       )}</li>`;

@@ -3,7 +3,7 @@
   --form-control-border-color: #494949;
 }
 
-input[type="text"],
+input[type='text'],
 select,
 textarea {
   width: 100%;
@@ -30,7 +30,7 @@ textarea {
   font-size: 1.8rem;
   text-align: center;
   width: 100%;
-  font-family: "Sublem", Helvetica, sans-serif;
+  font-family: 'Sublem', Helvetica, sans-serif;
 }
 
 .user-text-input {
@@ -88,7 +88,7 @@ textarea {
 }
 
 .checkbox::before {
-  content: "";
+  content: '';
   background: var(--form-control-active-color);
   position: absolute;
   border-radius: 50%;
